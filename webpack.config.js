@@ -15,6 +15,7 @@ let config = {
                 loader: 'babel',
                 test: /\.jsx$/
             }, {
+                include: APP_DIR,
                 loaders: ["style", "css?sourceMap", "sass?sourceMap"],
                 test: /\.scss$/
             }

@@ -5,6 +5,9 @@
   "scripts": {
     "test": "jest"
   },
+  "jest": {
+    "unmockedModulePathPatterns": ["react"]
+  },
   "author": "gxvv",
   "license": "MIT",
   "devDependencies": {
