@@ -7,11 +7,18 @@ class App extends React.Component {
         super(props);
     }
     render() {
-        let Cards = [1,2,3,4,5].map((e, i) => <Card key={i}/>);
         return (
             <div>
-                <h1>Title</h1>
-                {Cards}
+                <Card title="A simple title" key="1">
+                    <p>here is content</p>
+                    <p>here is content</p>
+                    <p>here is content</p>
+                </Card>
+                <Card title="A simple title" key="2">
+                    <p>here is content</p>
+                    <p>here is content</p>
+                    <p>here is content</p>
+                </Card>
             </div>
         );
     }

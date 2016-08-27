@@ -1,4 +1,11 @@
-@import "./Components/Card";
+@import "./Components/mixins";
+@import "./Components/config";
+
 body {
-    background-color: red;
+    background-color: rgb(236, 236, 236);
 }
+.wu-card-box+.wu-card-box {
+    margin-left: 20px;
+}
+
+@import "./Components/Card";
