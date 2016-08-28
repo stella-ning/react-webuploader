@@ -1,5 +1,6 @@
 import gulp from 'gulp';
 import gutil from 'gulp-util';
+import livereload from 'gulp-livereload';
 import webpack from 'webpack';
 import WebpackStream from 'webpack-stream';
 import WebpackDevServer from 'webpack-dev-server';
@@ -19,4 +20,9 @@ gulp.task("server", callback => {
             throw new gutil.PluginError("webpack-dev-server", err);
         gutil.log("[webpack-dev-server]", "http://localhost:8080/webpack-dev-server/index.html");
     });
+});
+
+gulp.task('watch', function() {
+    livereload.listen();
+    gulp.watch('dist/app.bundle.js', () => livereload.reload());
 });
