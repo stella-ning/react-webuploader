@@ -9,12 +9,22 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <Card title="A simple title" key="1">
+                <Card title="A simple title" key="1" status="wu-upload-progress">
                     <p>here is content</p>
                     <p>here is content</p>
                     <p>here is content</p>
                 </Card>
-                <Card title="A simple title" key="2">
+                <Card title="A simple title" key="2" status="wu-upload-error">
+                    <p>here is content</p>
+                    <p>here is content</p>
+                    <p>here is content</p>
+                </Card>
+                <Card title="A simple title" key="3" status="wu-upload-success">
+                    <p>here is content</p>
+                    <p>here is content</p>
+                    <p>here is content</p>
+                </Card>
+                <Card title="A simple title" key="4">
                     <p>here is content</p>
                     <p>here is content</p>
                     <p>here is content</p>
