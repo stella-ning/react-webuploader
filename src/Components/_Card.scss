@@ -42,6 +42,16 @@
             }
         }
     }
+
+    &.wu-upload-success {
+        animation-duration: 1s;
+        animation-name: showSuccess;
+    }
+
+    &.wu-upload-error {
+        animation-duration: 1s;
+        animation-name: showError;
+    }
 }
 .wu-card-bg {
     position: absolute;
@@ -70,4 +80,18 @@
 
 .wu-card-content {
     padding: 24px;
+}
+
+@keyframes showError {
+    from {box-shadow: $shadow-danger;}
+    20%  {box-shadow: none;}
+    40%  {box-shadow: $shadow-danger;}
+    60%  {box-shadow: none;}
+    80%  {box-shadow: $shadow-danger;}
+    to   {box-shadow: none;}
+}
+
+@keyframes showSuccess {
+    from {box-shadow: $shadow-success;}
+    to {box-shadow: none;}
 }
