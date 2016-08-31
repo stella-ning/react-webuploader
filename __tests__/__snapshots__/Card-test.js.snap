@@ -1,0 +1,34 @@
+exports[`Card take Snapshot 1`] = `
+<div
+  className="wu-card-box "
+  onClick={[Function bound setProgress]}>
+  <div
+    className="wu-card-header">
+    A simple title
+  </div>
+  <svg
+    className="wu-card-bg"
+    height={320}
+    width={200}
+    xmlns="http://www.w3.org/2000/svg">
+    <path
+      className="wu-card-progressbg"
+      d="M 6 2 H 194 Q 198 2,198 6 V 314 Q 198 318,194 318 H 6 Q 2 318,2 314 V 6 Q 2 2,6 2 z" />
+    <path
+      className="wu-card-border"
+      d="M 6 2 H 194 Q 198 2,198 6 V 314 Q 198 318,194 318 H 6 Q 2 318,2 314 V 6 Q 2 2,6 2 z" />
+  </svg>
+  <div
+    className="wu-card-content">
+    <p>
+      here is content
+    </p>
+    <p>
+      here is content
+    </p>
+    <p>
+      here is content
+    </p>
+  </div>
+</div>
+`;

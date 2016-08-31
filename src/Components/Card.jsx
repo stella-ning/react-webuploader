@@ -4,12 +4,16 @@ class Card extends React.Component {
         type: 'line',
         status: ''
     };
+    static propTypes = {
+        status: React.PropTypes.oneOf(['', 'wu-upload-progress', 'wu-upload-error', 'wu-upload-success'])
+    }
+    setStatusClass(nextStatus) {}
     constructor(props) {
         super(props);
         let r = 4;
         let gap = 2;
-        const x = parseInt(200),
-            y = parseInt(320);
+        const x = 200,
+            y = 320;
         this.state = {
             svg: null,
             progress: null,
@@ -45,7 +49,7 @@ class Card extends React.Component {
             ? <div className="wu-card-header">{title}</div>
             : null;
         return (
-            <div className={`wu-card-box ${this.props.status}`} ref="cardElement" onClick={this.setProgress}>
+            <div className={`wu-card-box ${this.props.status}`} ref={c => this._elementRef = c}>
                 {header}
                 <Svg x={200} y={320}>
                     <Path d={this.state.pathD} className="wu-card-progressbg" key="1"></Path>
@@ -75,7 +79,6 @@ class Path extends React.Component {
     constructor(props) {
         super(props);
     }
-    componentDidMount() {}
     setStrokeDasharray() {
         const self = this.refs.pathElement;
         const TOTAL_LENGTH = self.getTotalLength();
