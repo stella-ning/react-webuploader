@@ -12,10 +12,10 @@
     // border: $cardBorderW solid $cardBorderC;
     border-radius: 5px;
     overflow: hidden;
-    transition: all 1s;
+    transition: box-shadow 1s;
 
     &:hover {
-        transition: all 1s;
+        transition: box-shadow 1s;
     }
 }
 

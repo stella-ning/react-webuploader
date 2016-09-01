@@ -12,18 +12,22 @@ class App extends React.Component {
         this.changeStatus = this.changeStatus.bind(this);
     }
     changeStatus(className, num) {
-        if(num){
+        if (num !== undefined) {
             this.setPercent(num);
-            return setTimeout(()=> {
+            return setTimeout(() => {
                 this.setState({status: className});
             }, 1000);
         }
         this.setState({status: className});
     }
-    setPercent(num){
+    setPercent(num) {
+        console.log(num);
         let currentPercent = this.state.percent;
-        console.log(currentPercent);
-        this.setState({percent: currentPercent + num});
+        if (num > 100 || num < 0)
+            return;
+        this.setState({
+            percent: num
+        });
     }
     render() {
         return (
@@ -36,12 +40,12 @@ class App extends React.Component {
                 <div className="btn-group">
                     <button onClick={() => this.changeStatus('wu-upload-progress')}>progress</button>
                     <button onClick={() => this.changeStatus('wu-upload-error', 100)}>error</button>
-                    <button onClick={() => this.changeStatus('wu-upload-success')}>success</button>
-                    <button onClick={() => this.changeStatus('')}>reset</button>
+                    <button onClick={() => this.changeStatus('wu-upload-success', 100)}>success</button>
+                    <button onClick={() => this.changeStatus('', 0)}>reset</button>
                 </div>
                 <div className="btn-group">
-                    <button onClick={() => this.setPercent(-10)}>-</button>
-                    <button onClick={() => this.setPercent(10)}>+</button>
+                    <button onClick={() => this.setPercent(this.state.percent - 10)}>-</button>
+                    <button onClick={() => this.setPercent(this.state.percent + 10)}>+</button>
                 </div>
             </div>
         );

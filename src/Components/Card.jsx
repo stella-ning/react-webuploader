@@ -36,16 +36,16 @@ class Card extends React.Component {
     }
     componentDidMount() {
         const self = this._elementRef;
-        console.log(self);
         let path = self.querySelector('.wu-card-border');
         console.log(path);
+        this.setProgress(0);
     }
     setProgress(num) {
         if(num === null) return;
         const self = this._elementRef;
         self.querySelectorAll('.wu-card-border').forEach(ele => {
             let totalLen = Math.round(ele.getTotalLength());
-            let offset = 1 - totalLen*num/100;
+            let offset = totalLen*(1 - num/100);
             let dash = totalLen;
             let style = `stroke-dasharray:${totalLen},${totalLen};stroke-dashoffset:${offset};`
             console.log(style);
@@ -77,7 +77,6 @@ class Svg extends React.Component {
     constructor(props) {
         super(props);
     }
-    componentDidMount() {}
     render() {
         return (
             <svg className="wu-card-bg" xmlns="http://www.w3.org/2000/svg" height={this.props.y} width={this.props.x} ref="svgElement">
