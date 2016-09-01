@@ -7,7 +7,9 @@ class Card extends React.Component {
     static propTypes = {
         status: React.PropTypes.oneOf(['', 'wu-upload-progress', 'wu-upload-error', 'wu-upload-success'])
     }
-    setStatusClass(nextStatus) {}
+    setStatusClass(nextStatus) {
+
+    }
     constructor(props) {
         super(props);
         let r = 4;
@@ -33,23 +35,32 @@ class Card extends React.Component {
         this.setProgress = this.setProgress.bind(this);
     }
     componentDidMount() {
-        const self = this.refs.cardElement;
+        const self = this._elementRef;
         console.log(self);
+        let path = self.querySelector('.wu-card-border');
+        console.log(path);
     }
     setProgress(num) {
-        const self = this.refs.cardElement;
+        if(num === null) return;
+        const self = this._elementRef;
         self.querySelectorAll('.wu-card-border').forEach(ele => {
-            console.log(ele.refs);
+            let totalLen = Math.round(ele.getTotalLength());
+            let offset = 1 - totalLen*num/100;
+            let dash = totalLen;
+            let style = `stroke-dasharray:${totalLen},${totalLen};stroke-dashoffset:${offset};`
+            console.log(style);
+            ele.style = style;
         });
         console.log(this.props);
     }
     render() {
-        let {title} = this.props;
+        let {title, status, percent} = this.props;
+        this.setProgress(percent);
         const header = title
             ? <div className="wu-card-header">{title}</div>
             : null;
         return (
-            <div className={`wu-card-box ${this.props.status}`} ref={c => this._elementRef = c}>
+            <div className={`wu-card-box ${status}`} ref={c => this._elementRef = c}>
                 {header}
                 <Svg x={200} y={320}>
                     <Path d={this.state.pathD} className="wu-card-progressbg" key="1"></Path>

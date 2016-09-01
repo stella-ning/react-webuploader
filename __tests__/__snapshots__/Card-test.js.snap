@@ -1,7 +1,6 @@
 exports[`Card take Snapshot 1`] = `
 <div
-  className="wu-card-box "
-  onClick={[Function bound setProgress]}>
+  className="wu-card-box wu-upload-progress">
   <div
     className="wu-card-header">
     A simple title

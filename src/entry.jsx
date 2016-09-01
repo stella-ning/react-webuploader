@@ -7,11 +7,17 @@ class App extends React.Component {
         super(props);
         this.state = {
             status: '',
-            percent: 0
+            percent: null
         }
         this.changeStatus = this.changeStatus.bind(this);
     }
-    changeStatus(className) {
+    changeStatus(className, num) {
+        if(num){
+            this.setPercent(num);
+            return setTimeout(()=> {
+                this.setState({status: className});
+            }, 1000);
+        }
         this.setState({status: className});
     }
     setPercent(num){
@@ -29,7 +35,7 @@ class App extends React.Component {
                 </Card>
                 <div className="btn-group">
                     <button onClick={() => this.changeStatus('wu-upload-progress')}>progress</button>
-                    <button onClick={() => this.changeStatus('wu-upload-error')}>error</button>
+                    <button onClick={() => this.changeStatus('wu-upload-error', 100)}>error</button>
                     <button onClick={() => this.changeStatus('wu-upload-success')}>success</button>
                     <button onClick={() => this.changeStatus('')}>reset</button>
                 </div>

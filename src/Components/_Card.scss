@@ -26,8 +26,9 @@
     &:hover {
         box-shadow: $shadow-default;
     }
-    .wu-card-border {
+    path {
         stroke: #f3f3f3;
+        stroke-linecap: round;
     }
     @each $status, $shadowType, $type in ('progress', $shadow-primary, $primary),
                                          ('success' , $shadow-success, $success),
