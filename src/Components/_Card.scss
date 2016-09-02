@@ -1,6 +1,6 @@
 .wu-card-box {
     position: relative;
-    z-index: -2;
+    z-index: 0;
 
     box-sizing: border-box;
     float: left;
@@ -27,7 +27,7 @@
         box-shadow: $shadow-default;
     }
     path {
-        stroke: #f3f3f3;
+        stroke: #dfdfdf;
         stroke-linecap: round;
     }
     @each $status, $shadowType, $type in ('progress', $shadow-primary, $primary),
@@ -47,11 +47,22 @@
     &.wu-upload-success {
         animation-duration: 1s;
         animation-name: showSuccess;
+
+        .wu-card-border {
+            stroke-dasharray: 0!important;
+            stroke-dashoffset: 0!important;
+        }
     }
 
     &.wu-upload-error {
         animation-duration: 1s;
         animation-name: showError;
+
+        .wu-card-border {
+            stroke-dasharray: 0!important;
+            stroke-dashoffset: 0!important;
+            transition: unset;
+        }
     }
 }
 .wu-card-bg {
@@ -80,7 +91,15 @@
 }
 
 .wu-card-content {
-    padding: 24px;
+    // padding: 12px;
+
+    border-radius: 2px;
+    line-height: 1.2;
+    overflow: hidden;
+}
+
+.wu-card-preview {
+    width: 100%;
 }
 
 @keyframes showError {
