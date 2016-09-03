@@ -33,6 +33,7 @@
     "css-loader": "^0.24.0",
     "eslint": "^3.3.1",
     "eslint-plugin-react": "^6.1.2",
+    "expose-loader": "^0.7.1",
     "gulp": "^3.9.1",
     "gulp-livereload": "^3.8.1",
     "gulp-util": "^3.0.7",
@@ -48,6 +49,7 @@
     "webpack-stream": "^3.2.0"
   },
   "dependencies": {
+    "jquery": "^1.12.4",
     "react": "^15.3.1",
     "react-dom": "^15.3.1"
   }

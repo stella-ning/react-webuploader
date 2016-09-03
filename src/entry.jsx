@@ -1,9 +1,16 @@
 import React from 'react';
 import {render} from 'react-dom';
+import 'expose?$!expose?jQuery!jquery';
+import WebUploader from './vendor/webuploader.html5only.js';
 import Card from './Components/Card.jsx';
 import CardList from './Components/CardList.jsx';
 import './base.scss';
 class App extends React.Component {
+    static WU = null;
+    static config = {
+        server: 'http://webuploader.duapp.com/server/fileupload.php',
+        pick: '#pick'
+    };
     constructor(props) {
         super(props);
         this.state = {
@@ -31,26 +38,20 @@ class App extends React.Component {
         this.setState({percent: num});
     }
     addNewFile() {
-        let fileListCopy = this.state.fileList.slice();
-        fileListCopy.push({status: 'wu-upload-success', percent: null});
-        this.setState({fileList: fileListCopy});
+        console.log(this.config);
+        this.WU = this.WU || new WebUploader.create(this.config);
+        console.log($('#pick'));
+        console.log(this.WU);
+    }
+    componentDidMount() {
+
     }
     render() {
         return (
             <div>
                 <CardList cardList={this.state.fileList}>
-                    <Card status={this.state.status} percent={this.state.percent} className="wu-fileAdd" onClick={()=>this.addNewFile()}>NEW</Card>
+                    <Card status={this.state.status} percent={this.state.percent} className="wu-fileAdd" onClick={() => this.addNewFile()}><span id="pick"></span></Card>
                 </CardList>
-                <div className="btn-group">
-                    <button onClick={() => this.changeStatus('wu-upload-progress', 1)}>progress</button>
-                    <button onClick={() => this.changeStatus('wu-upload-error', 0)}>error</button>
-                    <button onClick={() => this.changeStatus('wu-upload-success', 100)}>success</button>
-                    <button onClick={() => this.changeStatus('', 0)}>reset</button>
-                </div>
-                <div className="btn-group">
-                    <button onClick={() => this.setPercent(this.state.percent - 10)}>-</button>
-                    <button onClick={() => this.setPercent(this.state.percent + 10)}>+</button>
-                </div>
             </div>
         );
     }
