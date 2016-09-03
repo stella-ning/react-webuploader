@@ -3,20 +3,15 @@ import Card from './Card.jsx';
 class CardList extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            list: []
-        };
     }
-
     render() {
-        let fileList = this.state.list.map((item, index) => {
-            return (<Card/>)
-        });
+        let {cardList, ...others} = this.props;
         return (
-            <div className="wu-cardlist">
-                {fileList}
-                <button>Add</button>
+            <div className="wu-card-list">
+                {cardList.map((element, index)=>(<Card {...element} key={index}></Card>))}
+                {this.props.children}
             </div>
         );
     }
 }
+export default CardList;

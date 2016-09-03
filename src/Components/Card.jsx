@@ -7,9 +7,7 @@ class Card extends React.Component {
     static propTypes = {
         status: React.PropTypes.oneOf(['', 'wu-upload-progress', 'wu-upload-error', 'wu-upload-success'])
     }
-    setStatusClass(nextStatus) {
 
-    }
     constructor(props) {
         super(props);
         let r = 4;
@@ -54,13 +52,13 @@ class Card extends React.Component {
         console.log(this.props);
     }
     render() {
-        let {title, status, percent} = this.props;
+        let {title, status, percent, ...others} = this.props;
         this.setProgress(percent);
         const header = title
             ? <div className="wu-card-header">{title}</div>
             : null;
         return (
-            <div className={`wu-card-box ${status}`} ref={c => this._elementRef = c}>
+            <div className={`wu-card-box ${status}`} ref={c => this._elementRef = c} {...others}>
                 {header}
                 <Svg x={200} y={320}>
                     <Path d={this.state.pathD} className="wu-card-progressbg" key="1"></Path>

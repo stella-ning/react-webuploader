@@ -1,5 +1,6 @@
 @import "./Components/mixins";
 @import "./Components/config";
+@import "./Components/Card";
 
 body {
     // background-color: rgb(236, 236, 236);
@@ -13,5 +14,11 @@ body {
     @include clearfix();
     clear: both;
 }
-
-@import "./Components/Card";
+.wu-fileAdd {
+    @extend .wu-card-box;
+    .wu-card-border {
+        stroke: $info;
+        stroke-dasharray: 10!important;
+        stroke-dashoffset: 0!important;
+    }
+}
