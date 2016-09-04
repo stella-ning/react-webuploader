@@ -23,6 +23,51 @@ body {
     }
 }
 
+.wu-add-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    height: 1em;
+    margin: auto 0;
+
+    font-size: 60px;
+    line-height: 1;
+    text-align: center;
+    color: $info;
+    cursor: pointer;
+}
+
+.wu-card-remover {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+
+    color: $danger;
+    cursor: pointer;
+    font: {
+        family: sans-serif;
+        size: 24px;
+        weight: bold;
+    }
+    line-height: 0;
+
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.wu-card-box:hover .wu-card-remover {
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+.wu-upload-error .wu-card-remover {
+    opacity: 1;
+    transition: opacity 1s;
+}
+
 .webuploader-container {
     display: none;
 }

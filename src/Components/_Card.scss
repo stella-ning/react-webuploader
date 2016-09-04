@@ -61,7 +61,6 @@
         .wu-card-border {
             stroke-dasharray: 0!important;
             stroke-dashoffset: 0!important;
-            transition: unset;
         }
     }
 }
@@ -77,8 +76,6 @@
         fill: transparent;
         stroke-dasharray: 0;
         stroke-width: 2;
-
-        transition: stroke-dashoffset 1s;
     }
 
 }
