@@ -6,14 +6,19 @@ body {
     // background-color: rgb(236, 236, 236);
 }
 
-.wu-card-box+.wu-card-box {
-    margin-left: 20px;
+.wu-card-box {
+    margin: 0 10px;
 }
 
 .btn-group {
     @include clearfix();
     clear: both;
 }
+
+.wu-card-list {
+    @include clearfix();
+}
+
 .wu-fileAdd {
     @extend .wu-card-box;
     .wu-card-border {

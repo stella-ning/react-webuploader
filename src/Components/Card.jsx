@@ -10,7 +10,6 @@ class Card extends React.Component {
         y: 320
     };
     static propTypes = {
-        // status: React.PropTypes.oneOf(['', 'wu-upload-progress', 'wu-upload-error', 'wu-upload-success'])
         type: React.PropTypes.oneOf(['round', 'square'])
     }
 
