@@ -1,11 +1,12 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 class Card extends React.Component {
     static defaultProps = {
         type: 'line',
         status: ''
     };
     static propTypes = {
-        status: React.PropTypes.oneOf(['', 'wu-upload-progress', 'wu-upload-error', 'wu-upload-success'])
+        // status: React.PropTypes.oneOf(['', 'wu-upload-progress', 'wu-upload-error', 'wu-upload-success'])
     }
 
     constructor(props) {
@@ -30,39 +31,29 @@ class Card extends React.Component {
                 `z`
             ].join(' ')
         };
-        this.setProgress = this.setProgress.bind(this);
     }
     componentDidMount() {
-        const self = this._elementRef;
-        let path = self.querySelector('.wu-card-border');
-        console.log(path);
-        this.setProgress(0);
     }
-    setProgress(num) {
-        if(num === null) return;
-        const self = this._elementRef;
-        self.querySelectorAll('.wu-card-border').forEach(ele => {
-            let totalLen = Math.round(ele.getTotalLength());
-            let offset = totalLen*(1 - num/100);
-            let dash = totalLen;
-            let style = `stroke-dasharray:${totalLen},${totalLen};stroke-dashoffset:${offset};`
-            console.log(style);
-            ele.style = style;
-        });
-        console.log(this.props);
+    componentDidUpdate(){
+        if(this.props.percent === null) return;
+        let path = ReactDOM.findDOMNode(this._path);
+        let totalLen = Math.round(path.getTotalLength());
+        let offset = totalLen*(1 - this.props.percent);
+        let dash = totalLen;
+        let style = `stroke-dasharray:${totalLen},${totalLen};stroke-dashoffset:${offset}`;
+        path.style = style;
     }
     render() {
         let {title, status, percent, ...others} = this.props;
-        this.setProgress(percent);
         const header = title
             ? <div className="wu-card-header">{title}</div>
             : null;
         return (
-            <div className={`wu-card-box ${status}`} ref={c => this._elementRef = c} {...others}>
+            <div className={`wu-card-box wu-upload-${status}`} ref={c => this._elementRef = c} {...others}>
                 {header}
                 <Svg x={200} y={320}>
                     <Path d={this.state.pathD} className="wu-card-progressbg" key="1"></Path>
-                    <Path d={this.state.pathD} className="wu-card-border" key="2"></Path>
+                    <Path d={this.state.pathD} className="wu-card-border" key="2" ref={c => this._path = c}></Path>
                 </Svg>
                 <div className="wu-card-content">
                     {this.props.children}
@@ -87,14 +78,8 @@ class Path extends React.Component {
     constructor(props) {
         super(props);
     }
-    setStrokeDasharray() {
-        const self = this.refs.pathElement;
-        const TOTAL_LENGTH = self.getTotalLength();
-        self.style.strokeDasharray = TOTAL_LENGTH;
-        console.log(TOTAL_LENGTH);
-    }
     render() {
-        return (<path d={this.props.d} className={this.props.className} ref="pathElement"/>);
+        return (<path d={this.props.d} className={this.props.className}/>);
     }
 }
 export default Card;

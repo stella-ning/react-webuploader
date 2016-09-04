@@ -31,7 +31,7 @@
         stroke-linecap: round;
     }
     @each $status, $shadowType, $type in ('progress', $shadow-primary, $primary),
-                                         ('success' , $shadow-success, $success),
+                                         ('complete' , $shadow-success, $success),
                                          ('error'   , $shadow-danger , $danger )
     {
         &.wu-upload-#{$status} {
@@ -44,7 +44,7 @@
         }
     }
 
-    &.wu-upload-success {
+    &.wu-upload-complete {
         animation-duration: 1s;
         animation-name: showSuccess;
 
