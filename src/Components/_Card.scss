@@ -1,16 +1,13 @@
-.wu-card-box {
+.#{$clsPrefix}card-box {
     position: relative;
     z-index: 0;
 
     box-sizing: border-box;
     float: left;
-    height: $cardHeight;
-    width: $cardWidth;
-    padding: 4px;
+    padding: $gap * 2;
 
     background-color: $cardBgC;
-    // border: $cardBorderW solid $cardBorderC;
-    border-radius: 5px;
+    border-radius: $r + 1;
     overflow: hidden;
     transition: box-shadow 1s;
 
@@ -19,10 +16,7 @@
     }
 }
 
-/**
- * 不同状态下不同颜色
- */
-.wu-card-box {
+.#{$clsPrefix}card-box {
     &:hover {
         box-shadow: $shadow-default;
     }
@@ -34,37 +28,40 @@
                                          ('complete' , $shadow-success, $success),
                                          ('error'   , $shadow-danger , $danger )
     {
-        &.wu-upload-#{$status} {
+        &.#{$clsPrefix}upload-#{$status} {
             &:hover {
                 box-shadow: #{$shadowType};
             }
-            .wu-card-border {
+            .#{$clsPrefix}card-border {
                 stroke: #{$type};
             }
         }
     }
 
-    &.wu-upload-complete {
+    &.#{$clsPrefix}upload-complete {
         animation-duration: 1s;
         animation-name: showSuccess;
 
-        .wu-card-border {
+        .#{$clsPrefix}card-border {
             stroke-dasharray: 0!important;
             stroke-dashoffset: 0!important;
         }
     }
 
-    &.wu-upload-error {
+    &.#{$clsPrefix}upload-error {
         animation-duration: 1s;
         animation-name: showError;
 
-        .wu-card-border {
+        .#{$clsPrefix}card-border {
             stroke-dasharray: 0!important;
             stroke-dashoffset: 0!important;
+
+            transition: unset;
         }
     }
 }
-.wu-card-bg {
+
+.#{$clsPrefix}card-bg {
     position: absolute;
     top: 0;
     left: 0;
@@ -76,26 +73,26 @@
         fill: transparent;
         stroke-dasharray: 0;
         stroke-width: 2;
+
+        transition: stroke-dashoffset 1s;
     }
 
 }
 
-.wu-card-header {
+.#{$clsPrefix}card-header {
     height: 48px;
     line-height: 48px;
     border-bottom: 1px solid #e9e9e9;
     padding: 0 24px;
 }
 
-.wu-card-content {
-    // padding: 12px;
-
+.#{$clsPrefix}card-content {
     border-radius: 2px;
     line-height: 1.2;
     overflow: hidden;
 }
 
-.wu-card-preview {
+.#{$clsPrefix}card-preview {
     width: 100%;
 }
 

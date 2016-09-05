@@ -1,13 +1,16 @@
 {
   "name": "react-webuploader",
   "version": "0.1.0",
-  "description": "React-Webuploader",
+  "description": "react-webuploader",
   "scripts": {
     "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gxvv/React-Webuploader"
+    "url": "https://github.com/gxvv/react-webuploader"
+  },
+  "bugs": {
+    "url": "https://github.com/gxvv/react-webuploader/issues"
   },
   "keywords": [
     "react",

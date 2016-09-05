@@ -6,7 +6,7 @@ body {
     // background-color: rgb(236, 236, 236);
 }
 
-.wu-card-box {
+.#{$clsPrefix}card-box {
     margin: 0 10px;
 }
 
@@ -15,20 +15,20 @@ body {
     clear: both;
 }
 
-.wu-card-list {
+.#{$clsPrefix}card-list {
     @include clearfix();
 }
 
-.wu-fileAdd {
-    @extend .wu-card-box;
-    .wu-card-border {
+.#{$clsPrefix}fileAdd {
+    @extend .#{$clsPrefix}card-box;
+    .#{$clsPrefix}card-border {
         stroke: $info;
         stroke-dasharray: 10!important;
         stroke-dashoffset: 0!important;
     }
 }
 
-.wu-add-icon {
+.#{$clsPrefix}add-icon {
     position: absolute;
     top: 0;
     right: 0;
@@ -45,7 +45,7 @@ body {
     cursor: pointer;
 }
 
-.wu-card-remover {
+.#{$clsPrefix}card-remover {
     position: absolute;
     top: 15px;
     right: 10px;
@@ -63,14 +63,35 @@ body {
     transition: opacity 1s;
 }
 
-.wu-card-box:hover .wu-card-remover {
+.#{$clsPrefix}card-box:hover .#{$clsPrefix}card-remover {
     opacity: 1;
     transition: opacity 1s;
 }
 
-.wu-upload-error .wu-card-remover {
+.#{$clsPrefix}upload-error .#{$clsPrefix}card-remover {
     opacity: 1;
     transition: opacity 1s;
+}
+
+.#{$clsPrefix}preview {
+    width: 100%;
+}
+
+.#{$clsPrefix}fileinfo {
+    position: absolute;
+    bottom: 0;
+
+    padding: 0 10px;
+
+    h3 {
+        margin-bottom: 10px;
+    }
+
+    p {
+        margin: 10px 0;
+
+        color: #999;
+    }
 }
 
 .webuploader-container {

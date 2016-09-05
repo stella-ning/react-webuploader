@@ -1,5 +1,6 @@
 import React from 'react';
 import {render} from 'react-dom';
+// import WebUploader from './Components/WebUploader.jsx';
 import WebUploader from './Components/WebUploader.jsx';
 import './base.scss';
 
@@ -19,7 +20,6 @@ class App extends React.Component {
         this.setState({status: className});
     }
     setPercent(num) {
-        console.log(num);
         let currentPercent = this.state.percent;
         if (num > 100 || num < 0)
             num = Math.floor(Math.abs(num) / 100) * 100;
@@ -28,7 +28,7 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <WebUploader uploaderConfig={{server: 'http://localhost/test.php/Home/Index/upload', pick: '#pick', auto: true}} styleConfig={{ type: 'square'}}/>
+                <WebUploader uploaderConfig={{server: 'http://localhost/test.php/Home/Index/upload', pick: '#pick', auto: true}} styleConfig={{}}/>
             </div>
         );
     }

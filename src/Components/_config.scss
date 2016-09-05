@@ -1,6 +1,9 @@
-$scale: 1;
-$cardWidth: $scale * 200px;
-$cardHeight: $scale * 320px;
+/** @type {String} class前缀 */
+$clsPrefix: 'wu-';
+/** @type {px} 与Card的gap属性相同 */
+$gap: 2px;
+/** @type {px} 与Card的r属性相同 */
+$r: 4px;
 
 $cardBgC: white;
 $cardBorderW: 1px;
@@ -9,7 +12,6 @@ $cardBorderC: #eee;
 $primary: #337ab7;
 $success: #5cb85c;
 $info: #5bc0de;
-$warning: #f0ad4e;
 $danger: #d9534f;
 
 $shadow-primary: 0 1px 6px hsla(208, 56%, 46%, .5);
