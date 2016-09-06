@@ -59,7 +59,8 @@ class Card extends React.Component {
     }
 
     componentDidMount() {
-        this.svgElement.querySelectorAll(`.${this.props.clsPrefix}card-border`).forEach(path => {
+        let path = [].slice.call(this.svgElement.children, 1);
+        path.forEach(path => {
             let totalLen = Math.round(path.getTotalLength());
             let style = `stroke-dasharray:${totalLen},${totalLen};stroke-dashoffset:${totalLen};transition:unset;`;
             path.style = style;
@@ -67,7 +68,8 @@ class Card extends React.Component {
     }
 
     componentDidUpdate() {
-        this.svgElement.querySelectorAll(`.${this.props.clsPrefix}card-border`).forEach(path => {
+        let path = [].slice.call(this.svgElement.children, 1);
+        path.forEach(path => {
             let totalLen = Math.round(path.getTotalLength());
             let offset = totalLen * (1 - this.props.percent);
             let style = `stroke-dasharray:${totalLen},${totalLen};stroke-dashoffset:${offset};`;
